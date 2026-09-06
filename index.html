@@ -85,93 +85,35 @@
     }
 
     /* ============================================== */
-    /* LOGOTIPO RECREADO EXACTAMENTE COMO image.png  */
+    /* LOGOTIPO CON IMAGEN 3.jpeg                     */
     /* ============================================== */
-    .logo-meraki-card {
-      background: rgba(255, 255, 255, 0.07);
+    .logo-meraki-img {
+      background: rgba(255, 255, 255, 0.06);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 215, 140, 0.12);
       border-radius: 16px;
-      padding: 0.7rem 1.4rem 0.9rem 1.4rem;
-      min-width: 200px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-      transition: transform 0.2s ease;
-    }
-
-    .logo-meraki-card:hover {
-      transform: scale(1.02);
-    }
-
-    .logo-meraki-card .titulo-logo {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #f7d47c;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1.2;
-    }
-
-    .logo-meraki-card .universidad-logo {
-      font-size: 0.55rem;
-      font-weight: 400;
-      color: #9bb8d0;
-      letter-spacing: 0.3px;
-      margin-top: 0.1rem;
-      opacity: 0.8;
-    }
-
-    .logo-meraki-card .universidad-logo .cct {
-      color: #7aa3bf;
-      font-weight: 500;
-    }
-
-    .logo-meraki-card .linea-divisoria {
-      width: 70%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(246, 178, 107, 0.4), transparent);
-      margin: 0.3rem auto;
-      opacity: 0.5;
-    }
-
-    .logo-meraki-card .curso-logo {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #d4e2ed;
-      letter-spacing: 0.5px;
-    }
-
-    .logo-meraki-card .curso-logo .online {
-      background: rgba(246, 178, 107, 0.12);
-      padding: 0.1rem 0.6rem;
-      border-radius: 20px;
-      color: #f6b26b;
-      font-weight: 700;
-      font-size: 0.75rem;
-      margin-left: 0.3rem;
-    }
-
-    .logo-meraki-card .info-logo {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-top: 0.3rem;
-      font-size: 0.6rem;
-      color: #b0cbd9;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-
-    .logo-meraki-card .info-logo span {
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease;
+      max-width: 180px;
+      min-height: 60px;
     }
 
-    .logo-meraki-card .info-logo i {
-      font-size: 0.5rem;
-      color: #f6b26b;
-      opacity: 0.6;
+    .logo-meraki-img:hover {
+      transform: scale(1.03);
+    }
+
+    .logo-meraki-img img {
+      max-width: 100%;
+      max-height: 70px;
+      height: auto;
+      width: auto;
+      display: block;
+      border-radius: 8px;
+      object-fit: contain;
     }
 
     /* AVAL */
@@ -506,10 +448,14 @@
         align-items: stretch;
         gap: 0.8rem;
       }
-      .logo-meraki-card {
+      .logo-meraki-img {
         align-self: flex-end;
-        width: 100%;
-        max-width: 240px;
+        max-width: 160px;
+        min-height: 50px;
+        padding: 0.4rem 0.8rem;
+      }
+      .logo-meraki-img img {
+        max-height: 55px;
       }
       .titulo-curso h1 {
         font-size: 2.2rem;
@@ -553,15 +499,12 @@
       .info-item .valor.precio {
         font-size: 1.4rem;
       }
-      .logo-meraki-card {
-        max-width: 100%;
+      .logo-meraki-img {
+        max-width: 130px;
+        min-height: 40px;
       }
-      .logo-meraki-card .titulo-logo {
-        font-size: 1rem;
-      }
-      .logo-meraki-card .info-logo {
-        flex-direction: column;
-        gap: 0.2rem;
+      .logo-meraki-img img {
+        max-height: 45px;
       }
       .redes-sociales a {
         width: 2rem;
@@ -582,21 +525,10 @@
         </div>
 
         <!-- ========================================= -->
-        <!-- LOGOTIPO RECREADO EXACTAMENTE COMO image.png -->
+        <!-- LOGOTIPO CON IMAGEN 3.jpeg                 -->
         <!-- ========================================= -->
-        <div class="logo-meraki-card">
-          <div class="titulo-logo">INSTITUTO MERAKI</div>
-          <div class="universidad-logo">
-            Universidad Mexiquense de Toluca S.C. <span class="cct">· CCT 15PSU0253R</span>
-          </div>
-          <div class="linea-divisoria"></div>
-          <div class="curso-logo">
-            Curso Neuroeducación <span class="online">Online · En vivo</span>
-          </div>
-          <div class="info-logo">
-            <span><i class="fas fa-calendar-alt"></i> Inicio 24 sep 2026</span>
-            <span><i class="fas fa-tag"></i> Pago único $700.00</span>
-          </div>
+        <div class="logo-meraki-img">
+          <img src="3.jpeg" alt="Instituto Meraki - Logotipo" />
         </div>
       </div>
 
