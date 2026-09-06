@@ -59,7 +59,6 @@
       opacity: 0.7;
     }
 
-    /* Contenedor superior: instituto + logo */
     .header-top {
       display: flex;
       justify-content: space-between;
@@ -86,17 +85,17 @@
     }
 
     /* ============================================== */
-    /* LOGOTIPO RECREADO DESDE image.png             */
+    /* LOGOTIPO RECREADO EXACTAMENTE COMO image.png  */
     /* ============================================== */
     .logo-meraki-card {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.07);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 215, 140, 0.15);
+      border: 1px solid rgba(255, 215, 140, 0.12);
       border-radius: 16px;
-      padding: 0.6rem 1.2rem 0.8rem 1.2rem;
-      min-width: 160px;
+      padding: 0.7rem 1.4rem 0.9rem 1.4rem;
+      min-width: 200px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
       transition: transform 0.2s ease;
     }
 
@@ -105,55 +104,74 @@
     }
 
     .logo-meraki-card .titulo-logo {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: #f7d47c;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      border-bottom: 2px solid rgba(246, 178, 107, 0.3);
-      padding-bottom: 0.2rem;
-      margin-bottom: 0.2rem;
+      line-height: 1.2;
     }
 
-    .logo-meraki-card .subtitulo-logo {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #d4e2ed;
+    .logo-meraki-card .universidad-logo {
+      font-size: 0.55rem;
+      font-weight: 400;
+      color: #9bb8d0;
       letter-spacing: 0.3px;
-      line-height: 1.4;
+      margin-top: 0.1rem;
+      opacity: 0.8;
     }
 
-    .logo-meraki-card .subtitulo-logo .online {
-      background: rgba(246, 178, 107, 0.12);
-      padding: 0.05rem 0.5rem;
-      border-radius: 20px;
-      color: #f6b26b;
-      font-weight: 700;
+    .logo-meraki-card .universidad-logo .cct {
+      color: #7aa3bf;
+      font-weight: 500;
     }
 
     .logo-meraki-card .linea-divisoria {
-      width: 60%;
+      width: 70%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #f6b26b, transparent);
+      background: linear-gradient(90deg, transparent, rgba(246, 178, 107, 0.4), transparent);
       margin: 0.3rem auto;
-      opacity: 0.4;
+      opacity: 0.5;
     }
 
-    .logo-meraki-card .detalle-logo {
-      font-size: 0.55rem;
-      color: #9bb8d0;
+    .logo-meraki-card .curso-logo {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #d4e2ed;
       letter-spacing: 0.5px;
-      margin-top: 0.1rem;
+    }
+
+    .logo-meraki-card .curso-logo .online {
+      background: rgba(246, 178, 107, 0.12);
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      color: #f6b26b;
+      font-weight: 700;
+      font-size: 0.75rem;
+      margin-left: 0.3rem;
+    }
+
+    .logo-meraki-card .info-logo {
       display: flex;
       justify-content: center;
-      gap: 0.3rem;
-      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.3rem;
+      font-size: 0.6rem;
+      color: #b0cbd9;
+      font-weight: 500;
+      letter-spacing: 0.3px;
     }
 
-    .logo-meraki-card .detalle-logo span {
-      background: rgba(255, 255, 255, 0.04);
-      padding: 0.05rem 0.5rem;
-      border-radius: 12px;
+    .logo-meraki-card .info-logo span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .logo-meraki-card .info-logo i {
+      font-size: 0.5rem;
+      color: #f6b26b;
+      opacity: 0.6;
     }
 
     /* AVAL */
@@ -384,7 +402,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.4rem;
+      gap: 0.6rem;
       border-top: 1px solid #e2ecf5;
       padding-top: 1.5rem;
     }
@@ -396,6 +414,7 @@
       font-size: 0.95rem;
       color: #1a3f5a;
       font-weight: 500;
+      flex-wrap: wrap;
     }
 
     .contacto-item i {
@@ -410,11 +429,60 @@
       text-decoration: none;
       font-weight: 600;
       border-bottom: 1px dotted rgba(11, 43, 68, 0.2);
+      transition: color 0.2s;
     }
 
     .contacto-item a:hover {
       color: #1a5f8a;
       border-bottom-color: #1a5f8a;
+    }
+
+    /* REDES SOCIALES */
+    .redes-sociales {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-left: 0.2rem;
+    }
+
+    .redes-sociales a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: #f2f7fc;
+      color: #0b2b44;
+      font-size: 1.2rem;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(0, 40, 80, 0.06);
+      text-decoration: none;
+    }
+
+    .redes-sociales a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .redes-sociales a.instagram:hover {
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+      color: white;
+      border-color: transparent;
+    }
+
+    .redes-sociales a.facebook:hover {
+      background: #1877f2;
+      color: white;
+      border-color: transparent;
+    }
+
+    .redes-sociales .label-redes {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #4a6a82;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .cct {
@@ -441,7 +509,7 @@
       .logo-meraki-card {
         align-self: flex-end;
         width: 100%;
-        max-width: 220px;
+        max-width: 240px;
       }
       .titulo-curso h1 {
         font-size: 2.2rem;
@@ -462,6 +530,20 @@
       .card-body {
         padding: 1.5rem;
       }
+      .redes-sociales {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+      }
+      .contacto-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+      }
+      .footer-contacto {
+        align-items: center;
+      }
     }
 
     @media (max-width: 450px) {
@@ -475,7 +557,16 @@
         max-width: 100%;
       }
       .logo-meraki-card .titulo-logo {
-        font-size: 0.95rem;
+        font-size: 1rem;
+      }
+      .logo-meraki-card .info-logo {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .redes-sociales a {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
       }
     }
   </style>
@@ -495,15 +586,16 @@
         <!-- ========================================= -->
         <div class="logo-meraki-card">
           <div class="titulo-logo">INSTITUTO MERAKI</div>
-          <div class="subtitulo-logo">
-            Curso Neuroeducación<br />
-            <span class="online">Online · En vivo</span>
+          <div class="universidad-logo">
+            Universidad Mexiquense de Toluca S.C. <span class="cct">· CCT 15PSU0253R</span>
           </div>
           <div class="linea-divisoria"></div>
-          <div class="detalle-logo">
-            <span>Inicio 24 sep 2026</span>
-            <span>·</span>
-            <span>$700.00 MXN</span>
+          <div class="curso-logo">
+            Curso Neuroeducación <span class="online">Online · En vivo</span>
+          </div>
+          <div class="info-logo">
+            <span><i class="fas fa-calendar-alt"></i> Inicio 24 sep 2026</span>
+            <span><i class="fas fa-tag"></i> Pago único $700.00</span>
           </div>
         </div>
       </div>
@@ -577,7 +669,7 @@
         </a>
       </div>
 
-      <!-- Footer contacto -->
+      <!-- Footer contacto con redes sociales -->
       <div class="footer-contacto">
         <div class="contacto-item">
           <i class="fas fa-phone-alt"></i>
@@ -586,6 +678,18 @@
         <div class="contacto-item">
           <i class="fas fa-envelope"></i>
           <a href="mailto:infoinstitutomeraki@gmail.com">infoinstitutomeraki@gmail.com</a>
+        </div>
+        <div class="contacto-item">
+          <i class="fas fa-share-alt"></i>
+          <span class="label-redes">Síguenos:</span>
+          <div class="redes-sociales">
+            <a href="#" class="instagram" target="_blank" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="facebook" target="_blank" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
         </div>
         <div class="contacto-item" style="margin-top: 0.2rem; opacity:0.7;">
           <i class="fas fa-university"></i>
