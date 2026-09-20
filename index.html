@@ -11,6 +11,22 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
+    :root {
+      --azul-marino: #0a1f33;
+      --azul-marino-claro: #143452;
+      --azul-marino-medio: #1e4a6e;
+      --dorado: #d4af37;
+      --dorado-claro: #f0d78c;
+      --dorado-oscuro: #b8962e;
+      --blanco: #ffffff;
+      --gris-fondo: #f4f8fc;
+      --gris-borde: #e2eaf3;
+      --texto-oscuro: #0a1f33;
+      --texto-medio: #3a5a7a;
+      --sombra-suave: 0 8px 30px rgba(0, 20, 40, 0.06);
+      --sombra-fuerte: 0 20px 50px -10px rgba(0, 20, 40, 0.2);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -19,33 +35,49 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f8faff;
+      background: linear-gradient(145deg, #eef4fa 0%, #ffffff 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      background-image: radial-gradient(circle at 10% 30%, rgba(0, 40, 80, 0.02) 0%, transparent 30%),
-                        radial-gradient(circle at 90% 70%, rgba(0, 80, 120, 0.03) 0%, transparent 40%);
     }
 
     .card {
-      max-width: 880px;
+      max-width: 900px;
       width: 100%;
-      background: #ffffff;
+      background: var(--blanco);
       border-radius: 2.5rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 20, 40, 0.25);
+      box-shadow: var(--sombra-fuerte);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(2px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
     }
 
     /* HEADER */
     .card-header {
-      background: linear-gradient(145deg, #0b2b44 0%, #123b5a 100%);
-      padding: 1.8rem 2rem 1.2rem 2rem;
+      background: linear-gradient(145deg, var(--azul-marino) 0%, var(--azul-marino-claro) 100%);
+      padding: 2rem 2.5rem 1.8rem 2.5rem;
       color: white;
       position: relative;
+      overflow: hidden;
+    }
+
+    /* Patrón decorativo sutil */
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .card-header::after {
@@ -54,9 +86,9 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #f6b26b, #f7d47c, #f6b26b);
-      opacity: 0.7;
+      height: 4px;
+      background: linear-gradient(90deg, var(--dorado-oscuro), var(--dorado), var(--dorado-claro), var(--dorado), var(--dorado-oscuro));
+      opacity: 0.9;
     }
 
     .header-top {
@@ -64,55 +96,61 @@
       justify-content: space-between;
       align-items: flex-start;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .instituto-nombre {
       font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      opacity: 0.9;
-      background: rgba(255, 255, 255, 0.06);
-      padding: 0.2rem 1rem 0.2rem 0.8rem;
-      border-radius: 40px;
-      border-left: 3px solid #f6b26b;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem 1.4rem 0.5rem 1rem;
+      border-radius: 50px;
+      border-left: 4px solid var(--dorado);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #e8f0f8;
     }
 
     .instituto-nombre i {
-      margin-right: 8px;
-      opacity: 0.7;
+      color: var(--dorado);
+      font-size: 1.2rem;
     }
 
-    /* ============================================== */
-    /* LOGOTIPO CON IMAGEN 3.jpeg                     */
-    /* ============================================== */
+    /* LOGOTIPO */
     .logo-meraki-img {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(10, 31, 51, 0.5);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 215, 140, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.3);
       border-radius: 16px;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-      transition: transform 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
       max-width: 180px;
-      min-height: 60px;
+      min-height: 70px;
     }
 
     .logo-meraki-img:hover {
       transform: scale(1.03);
+      border-color: var(--dorado);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
     }
 
     .logo-meraki-img img {
       max-width: 100%;
-      max-height: 70px;
+      max-height: 60px;
       height: auto;
       width: auto;
       display: block;
-      border-radius: 8px;
+      border-radius: 6px;
       object-fit: contain;
     }
 
@@ -120,47 +158,57 @@
     .aval-wrapper {
       display: flex;
       justify-content: flex-end;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
+      position: relative;
+      z-index: 1;
     }
 
     .aval {
       font-size: 0.7rem;
       font-weight: 600;
       background: rgba(255, 255, 255, 0.06);
-      padding: 0.25rem 1.2rem;
-      border-radius: 40px;
-      border: 1px solid rgba(255, 215, 140, 0.1);
-      backdrop-filter: blur(2px);
+      padding: 0.4rem 1.4rem;
+      border-radius: 50px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      backdrop-filter: blur(4px);
       text-align: right;
-      color: #d4e2ed;
+      color: #c8dae8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .aval span {
-      display: inline-block;
-      background: rgba(246, 178, 107, 0.12);
-      padding: 0.1rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(212, 175, 55, 0.15);
+      padding: 0.15rem 0.9rem;
       border-radius: 30px;
-      color: #f7d47c;
+      color: var(--dorado-claro);
       font-weight: 700;
       font-size: 0.75rem;
+      border: 1px solid rgba(212, 175, 55, 0.1);
     }
 
     .aval small {
-      display: block;
       font-weight: 400;
-      opacity: 0.6;
-      font-size: 0.6rem;
-      margin-top: 2px;
-      color: #b0cbd9;
+      opacity: 0.7;
+      font-size: 0.65rem;
+      color: #a0bcd0;
     }
 
     /* TÍTULO CURSO */
     .titulo-curso {
-      margin-top: 1.2rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .titulo-curso h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -168,155 +216,221 @@
       flex-wrap: wrap;
       align-items: baseline;
       gap: 0.3rem 0.8rem;
+      color: #ffffff;
     }
 
     .titulo-curso h1 .destacado {
-      background: linear-gradient(135deg, #f6b26b, #f7d47c);
+      background: linear-gradient(135deg, var(--dorado-claro), var(--dorado), var(--dorado-oscuro));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       font-weight: 800;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
     }
 
     .badge-online {
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.08);
       font-size: 0.9rem;
       font-weight: 600;
-      padding: 0.2rem 1.2rem;
-      border-radius: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: inline-block;
-      margin-top: 0.3rem;
+      padding: 0.4rem 1.4rem;
+      border-radius: 50px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
       backdrop-filter: blur(4px);
       letter-spacing: 0.5px;
+      color: #d4e2ed;
+    }
+
+    .badge-online i {
+      color: var(--dorado);
     }
 
     /* BODY */
     .card-body {
-      padding: 2rem 2rem 2.5rem 2rem;
+      padding: 2.5rem 2.5rem 2.8rem 2.5rem;
     }
 
     .grid-info {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.8rem 2.5rem;
+      gap: 1.5rem 2rem;
       margin-bottom: 2.5rem;
     }
 
     .info-item {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      background: #f2f7fc;
-      padding: 0.7rem 1.2rem 0.7rem 1rem;
-      border-radius: 60px;
-      border: 1px solid rgba(0, 40, 80, 0.03);
+      gap: 1rem;
+      background: var(--blanco);
+      padding: 1rem 1.4rem 1rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid var(--gris-borde);
+      box-shadow: var(--sombra-suave);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--dorado), var(--dorado-claro));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .info-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 20, 40, 0.08);
+      border-color: rgba(212, 175, 55, 0.3);
     }
 
     .info-item i {
-      font-size: 1.3rem;
-      color: #0b2b44;
-      width: 2rem;
-      text-align: center;
-      background: white;
-      padding: 0.5rem;
-      border-radius: 40px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      font-size: 1.4rem;
+      color: var(--dorado);
+      width: 2.6rem;
+      height: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #f8faff, #eef4fa);
+      border-radius: 12px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+      flex-shrink: 0;
     }
 
     .info-item .contenido {
       display: flex;
       flex-direction: column;
+      gap: 0.1rem;
     }
 
     .info-item .label {
       font-size: 0.65rem;
       text-transform: uppercase;
       font-weight: 700;
-      color: #4a6a82;
-      letter-spacing: 0.5px;
+      color: var(--texto-medio);
+      letter-spacing: 0.8px;
     }
 
     .info-item .valor {
       font-weight: 700;
       font-size: 1.1rem;
-      color: #0b2b44;
+      color: var(--texto-oscuro);
       line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .info-item .valor.precio {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 800;
-      color: #0b2b44;
+      color: var(--texto-oscuro);
       letter-spacing: -0.5px;
     }
 
     .info-item .valor.precio small {
       font-size: 0.9rem;
       font-weight: 600;
-      color: #2f5a7a;
+      color: var(--texto-medio);
       margin-left: 0.2rem;
     }
 
     .cupo-limitado {
-      background: #eef3f9;
-      border-radius: 60px;
-      padding: 0.2rem 1.2rem;
+      background: linear-gradient(145deg, #fdf6e3, #faf0d7);
+      border-radius: 50px;
+      padding: 0.3rem 1.2rem;
       font-weight: 700;
       font-size: 0.75rem;
-      color: #1f4b6e;
-      display: inline-block;
-      border: 1px solid rgba(0, 0, 0, 0.02);
-      margin-top: 0.15rem;
+      color: #8a6d1f;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid rgba(212, 175, 55, 0.25);
       letter-spacing: 0.3px;
     }
 
+    .cupo-limitado i {
+      font-size: 0.7rem;
+      color: var(--dorado-oscuro);
+      width: auto;
+      height: auto;
+      background: none;
+      box-shadow: none;
+    }
+
+    /* CTA SECTION */
     .cta-section {
-      background: #f2f7fc;
-      border-radius: 2rem;
-      padding: 1.5rem 1.8rem;
+      background: linear-gradient(145deg, #f8faff, #eef4fa);
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
-      margin-top: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--gris-borde);
+      box-shadow: var(--sombra-suave);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+      opacity: 0.5;
     }
 
     .cta-texto {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
     .cta-texto i {
       font-size: 1.8rem;
-      color: #0b2b44;
-      background: white;
-      padding: 0.6rem;
-      border-radius: 60px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      color: var(--dorado);
+      background: var(--blanco);
+      width: 3.2rem;
+      height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.15);
     }
 
     .cta-texto .inscripcion {
       font-weight: 700;
       font-size: 1.3rem;
-      color: #0b2b44;
+      color: var(--texto-oscuro);
     }
 
     .cta-texto .inscripcion small {
       font-weight: 400;
       font-size: 0.9rem;
-      color: #3a6a8a;
+      color: var(--texto-medio);
     }
 
     .btn-whatsapp {
-      background: #25D366;
+      background: linear-gradient(145deg, #25D366, #1fba5e);
       color: white;
       border: none;
-      padding: 0.8rem 2rem;
+      padding: 1rem 2.2rem;
       border-radius: 60px;
       font-weight: 700;
       font-size: 1.1rem;
@@ -324,9 +438,26 @@
       align-items: center;
       gap: 0.7rem;
       text-decoration: none;
-      transition: 0.2s ease;
-      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.25);
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-whatsapp::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-whatsapp:hover::before {
+      left: 100%;
     }
 
     .btn-whatsapp i {
@@ -334,55 +465,61 @@
     }
 
     .btn-whatsapp:hover {
-      background: #1fba5e;
-      transform: scale(1.02);
-      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
     }
 
+    /* FOOTER CONTACTO */
     .footer-contacto {
-      margin-top: 1.8rem;
+      margin-top: 2rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.6rem;
-      border-top: 1px solid #e2ecf5;
-      padding-top: 1.5rem;
+      gap: 0.8rem;
+      border-top: 1px solid var(--gris-borde);
+      padding-top: 1.8rem;
     }
 
     .contacto-item {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1rem;
       font-size: 0.95rem;
-      color: #1a3f5a;
+      color: var(--texto-medio);
       font-weight: 500;
       flex-wrap: wrap;
-    }
-
-    .contacto-item i {
-      width: 1.6rem;
-      color: #0b2b44;
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    .contacto-item a {
-      color: #0b2b44;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px dotted rgba(11, 43, 68, 0.2);
       transition: color 0.2s;
     }
 
+    .contacto-item:hover {
+      color: var(--texto-oscuro);
+    }
+
+    .contacto-item i {
+      width: 1.8rem;
+      color: var(--dorado);
+      font-size: 1.1rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contacto-item a {
+      color: var(--texto-oscuro);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      transition: all 0.2s;
+    }
+
     .contacto-item a:hover {
-      color: #1a5f8a;
-      border-bottom-color: #1a5f8a;
+      color: var(--dorado-oscuro);
+      border-bottom-color: var(--dorado);
     }
 
     /* REDES SOCIALES */
     .redes-sociales {
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
       align-items: center;
       margin-left: 0.2rem;
     }
@@ -391,51 +528,84 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 2.6rem;
+      height: 2.6rem;
       border-radius: 50%;
-      background: #f2f7fc;
-      color: #0b2b44;
+      background: var(--blanco);
+      color: var(--azul-marino);
       font-size: 1.2rem;
-      transition: all 0.25s ease;
-      border: 1px solid rgba(0, 40, 80, 0.06);
+      transition: all 0.3s ease;
+      border: 1px solid var(--gris-borde);
       text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     }
 
     .redes-sociales a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
     }
 
     .redes-sociales a.instagram:hover {
       background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
       color: white;
-      border-color: transparent;
     }
 
     .redes-sociales a.facebook:hover {
       background: #1877f2;
       color: white;
-      border-color: transparent;
     }
 
     .redes-sociales .label-redes {
       font-size: 0.7rem;
-      font-weight: 600;
-      color: #4a6a82;
+      font-weight: 700;
+      color: var(--texto-medio);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
     }
 
+    /* CCT */
     .cct {
       font-size: 0.7rem;
-      color: #4d6f8a;
-      margin-top: 0.2rem;
+      color: var(--texto-medio);
       letter-spacing: 0.3px;
-      background: #eef3f9;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      display: inline-block;
+      background: linear-gradient(145deg, #f8faff, #eef4fa);
+      padding: 0.3rem 1.2rem;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--gris-borde);
+    }
+
+    .cct i {
+      color: var(--dorado);
+    }
+
+    /* FOOTER BOTTOM */
+    .footer-bottom {
+      font-size: 0.7rem;
+      color: var(--texto-medio);
+      margin-top: 0.8rem;
+      border-top: 1px solid var(--gris-borde);
+      padding-top: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      opacity: 0.8;
+    }
+
+    .footer-bottom span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .footer-bottom i {
+      color: var(--dorado);
+      font-size: 0.65rem;
     }
 
     /* RESPONSIVE */
@@ -446,16 +616,16 @@
       .header-top {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.8rem;
+        gap: 1rem;
       }
       .logo-meraki-img {
         align-self: flex-end;
-        max-width: 160px;
-        min-height: 50px;
+        max-width: 150px;
+        min-height: 55px;
         padding: 0.4rem 0.8rem;
       }
       .logo-meraki-img img {
-        max-height: 55px;
+        max-height: 45px;
       }
       .titulo-curso h1 {
         font-size: 2.2rem;
@@ -468,13 +638,14 @@
         flex-direction: column;
         align-items: stretch;
         text-align: center;
+        padding: 1.5rem;
       }
       .btn-whatsapp {
         justify-content: center;
-        padding: 0.8rem 1.5rem;
+        padding: 0.9rem 1.5rem;
       }
       .card-body {
-        padding: 1.5rem;
+        padding: 1.8rem;
       }
       .redes-sociales {
         margin-left: 0;
@@ -490,6 +661,13 @@
       .footer-contacto {
         align-items: center;
       }
+      .aval {
+        justify-content: center;
+        text-align: center;
+      }
+      .aval-wrapper {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 450px) {
@@ -500,16 +678,24 @@
         font-size: 1.4rem;
       }
       .logo-meraki-img {
-        max-width: 130px;
+        max-width: 120px;
         min-height: 40px;
       }
       .logo-meraki-img img {
-        max-height: 45px;
+        max-height: 35px;
       }
       .redes-sociales a {
-        width: 2rem;
-        height: 2rem;
+        width: 2.2rem;
+        height: 2.2rem;
         font-size: 1rem;
+      }
+      .info-item {
+        padding: 0.8rem 1rem;
+      }
+      .info-item i {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -524,18 +710,16 @@
           <i class="fas fa-graduation-cap"></i> Instituto Meraki
         </div>
 
-        <!-- ========================================= -->
-        <!-- LOGOTIPO CON IMAGEN 3.jpeg                 -->
-        <!-- ========================================= -->
+        <!-- LOGOTIPO -->
         <div class="logo-meraki-img">
           <img src="3.jpeg" alt="Instituto Meraki - Logotipo" />
         </div>
       </div>
 
-      <!-- AVAL (debajo del header-top) -->
+      <!-- AVAL -->
       <div class="aval-wrapper">
         <div class="aval">
-          <span><i class="fas fa-check-circle" style="margin-right: 4px;"></i> Avalado</span>
+          <span><i class="fas fa-check-circle"></i> Avalado</span>
           <small>Universidad Mexiquense de Toluca S.C. · CCT 15PSU0253R</small>
         </div>
       </div>
@@ -547,7 +731,7 @@
           <span class="destacado">Neuroeducación</span>
         </h1>
         <div class="badge-online">
-          <i class="fas fa-laptop" style="margin-right: 6px;"></i> Online · En vivo
+          <i class="fas fa-laptop"></i> Online · En vivo
         </div>
       </div>
     </div>
@@ -560,7 +744,7 @@
           <i class="fas fa-calendar-alt"></i>
           <div class="contenido">
             <span class="label">Inicio de clases</span>
-            <span class="valor fecha"><i class="far fa-calendar-check" style="margin-right: 4px; color:#1f6b8a;"></i> 24 de septiembre 2026</span>
+            <span class="valor"><i class="far fa-calendar-check" style="color:var(--dorado); font-size:0.9rem;"></i> 24 de septiembre 2026</span>
           </div>
         </div>
         <div class="info-item">
@@ -570,14 +754,14 @@
             <span class="valor precio">$700.00 <small>MXN</small></span>
           </div>
         </div>
-        <div class="info-item" style="grid-column: span 1;">
+        <div class="info-item">
           <i class="fas fa-users"></i>
           <div class="contenido">
             <span class="label">Cupo</span>
-            <span class="valor"><span class="cupo-limitado"><i class="fas fa-exclamation-triangle" style="margin-right: 5px;"></i> Cupo limitado</span></span>
+            <span class="valor"><span class="cupo-limitado"><i class="fas fa-exclamation-triangle"></i> Cupo limitado</span></span>
           </div>
         </div>
-        <div class="info-item" style="grid-column: span 1;">
+        <div class="info-item">
           <i class="fas fa-clock"></i>
           <div class="contenido">
             <span class="label">Modalidad</span>
@@ -623,11 +807,11 @@
             </a>
           </div>
         </div>
-        <div class="contacto-item" style="margin-top: 0.2rem; opacity:0.7;">
+        <div class="contacto-item" style="margin-top: 0.2rem; opacity:0.8;">
           <i class="fas fa-university"></i>
           <span class="cct"><i class="far fa-id-card"></i> CCT 15PSU0253R · Universidad Mexiquense de Toluca S.C.</span>
         </div>
-        <div style="font-size: 0.7rem; color: #4f7a9a; margin-top: 0.5rem; border-top: 1px solid #e2ecf5; padding-top: 0.8rem; width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div class="footer-bottom">
           <span><i class="far fa-calendar-alt"></i> Inicio: 24 sep 2026</span>
           <span><i class="fas fa-credit-card"></i> Pago único $700.00</span>
           <span><i class="fas fa-user-graduate"></i> Cupo limitado</span>
